@@ -48,7 +48,11 @@ pip install -r requirements.txt
 export BINANCE_API_KEY="your_api_key_here"
 export BINANCE_API_SECRET="your_api_secret_here"
 ```
-
+**if you are using windows**
+```bash
+$env BINANCE_API_KEY="your_api_key_here"
+$env BINANCE_API_SECRET="your_api_secret_here"
+```
 **Option B – CLI flags** (see examples below)
 
 ---
