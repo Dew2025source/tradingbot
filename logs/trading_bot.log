@@ -1,0 +1,15 @@
+2026-06-08T17:09:50 | DEBUG    | trading_bot.cli | CLI args: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None, 'stop_price': None, 'api_key': None, 'api_secret': None, 'log_level': 'INFO'}
+2026-06-08T17:13:36 | DEBUG    | trading_bot.cli | CLI args: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None, 'stop_price': None, 'api_key': None, 'api_secret': None, 'log_level': 'INFO'}
+2026-06-08T17:13:36 | DEBUG    | trading_bot.validators | Validated order params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': Decimal('0.001'), 'price': None, 'stop_price': None}
+2026-06-08T17:13:36 | INFO     | trading_bot.client | BinanceFuturesClient initialised. Base URL: https://testnet.binancefuture.com
+2026-06-08T17:13:36 | INFO     | trading_bot.orders | Placing order: symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=N/A
+2026-06-08T17:13:36 | DEBUG    | trading_bot.client | POST https://testnet.binancefuture.com/fapi/v1/order | params (excl. signature): {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1780919016639, 'recvWindow': 5000}
+2026-06-08T17:13:38 | DEBUG    | trading_bot.client | HTTP POST https://testnet.binancefuture.com/fapi/v1/order -> status 401 | body: {"code":-2014,"msg":"API-key format invalid."}
+2026-06-08T17:13:38 | ERROR    | trading_bot.cli | Binance API error: API-key format invalid. | HTTP 401 | Binance code -2014
+2026-06-08T17:21:28 | DEBUG    | trading_bot.cli | CLI args: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': '0.001', 'price': None, 'stop_price': None, 'api_key': None, 'api_secret': None, 'log_level': 'INFO'}
+2026-06-08T17:21:28 | DEBUG    | trading_bot.validators | Validated order params: {'symbol': 'BTCUSDT', 'side': 'BUY', 'order_type': 'MARKET', 'quantity': Decimal('0.001'), 'price': None, 'stop_price': None}
+2026-06-08T17:21:28 | INFO     | trading_bot.client | BinanceFuturesClient initialised. Base URL: https://testnet.binancefuture.com
+2026-06-08T17:21:28 | INFO     | trading_bot.orders | Placing order: symbol=BTCUSDT side=BUY type=MARKET qty=0.001 price=N/A
+2026-06-08T17:21:28 | DEBUG    | trading_bot.client | POST https://testnet.binancefuture.com/fapi/v1/order | params (excl. signature): {'symbol': 'BTCUSDT', 'side': 'BUY', 'type': 'MARKET', 'quantity': '0.001', 'timestamp': 1780919488531, 'recvWindow': 5000}
+2026-06-08T17:21:29 | DEBUG    | trading_bot.client | HTTP POST https://testnet.binancefuture.com/fapi/v1/order -> status 401 | body: {"code":-2014,"msg":"API-key format invalid."}
+2026-06-08T17:21:29 | ERROR    | trading_bot.cli | Binance API error: API-key format invalid. | HTTP 401 | Binance code -2014

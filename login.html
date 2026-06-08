@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - ParkFinder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <script src="./shared.js"></script>
+  <script>bootNav("login")</script>
+
+  <main class="auth-wrap page">
+    <section class="auth-card">
+      <h1>Login</h1>
+      <p class="muted">Access your dashboard and saved parking locations.</p>
+
+      <form id="loginForm" class="form-grid">
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="password" placeholder="Enter password" required />
+        </div>
+
+        <button type="submit" class="primary-btn">Login</button>
+      </form>
+
+      <div id="msg" class="msg"></div>
+
+      <div class="form-footer">
+        <span class="muted">No account yet?</span>
+        <a class="nav-link active" href="./signup.html">Create account</a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const msg = document.getElementById("msg");
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      try {
+        const res = await fetch(`${API}/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          setMessage(msg, data.error || "Login failed", "err");
+          return;
+        }
+
+        localStorage.setItem("parkfinder_user", JSON.stringify(data.user));
+        setMessage(msg, "Login successful. Redirecting...", "ok");
+        setTimeout(() => {
+          window.location.href = "./index.html";
+        }, 700);
+      } catch (error) {
+        setMessage(msg, "Backend is not running on http://localhost:5000", "err");
+      }
+    });
+  </script>
+</body>
+</html>

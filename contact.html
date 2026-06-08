@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - ParkFinder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <script src="./shared.js"></script>
+  <script>bootNav("contact")</script>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <h1>Contact page</h1>
+        <p class="muted">Simple multi-page contact section added to your project.</p>
+      </div>
+      <div class="user-chip">Need help? Send a message.</div>
+    </section>
+
+    <section class="contact-grid">
+      <article class="card contact-card">
+        <h3>Send us a message</h3>
+        <p class="muted">This is front-end only for now. Hook it to backend mail later.</p>
+
+        <form class="form-grid" id="contactForm">
+          <div class="input-group">
+            <label>Name</label>
+            <input id="cname" placeholder="Your name" required />
+          </div>
+          <div class="input-group">
+            <label>Email</label>
+            <input id="cemail" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="input-group">
+            <label>Message</label>
+            <textarea id="cmessage" rows="6" placeholder="Write your message" required></textarea>
+          </div>
+          <button class="primary-btn" type="submit">Send message</button>
+        </form>
+
+        <div id="contactMsg" class="msg"></div>
+      </article>
+
+      <article class="card contact-card">
+        <h3>Contact info</h3>
+        <p class="muted">Static info block for your multi-page project.</p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <strong>Email</strong>
+            <div class="muted">support@parkfinder.local</div>
+          </div>
+          <div class="info-item">
+            <strong>Phone</strong>
+            <div class="muted">+91 98765 43210</div>
+          </div>
+          <div class="info-item">
+            <strong>Office</strong>
+            <div class="muted">Meerut, Uttar Pradesh, India</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const msg = document.getElementById("contactMsg");
+      setMessage(msg, "Message submitted in UI. Backend mail integration is not added yet.", "ok");
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
